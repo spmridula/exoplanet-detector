@@ -153,6 +153,32 @@ All data is from NASA's publicly available archives:
 
 ---
 
+| Week | Focus | Status |
+|------|-------|--------|
+| Week 1 (Days 1–7)  | Data acquisition, EDA, preprocessing | ✅ Complete |
+| Week 2 (Days 8–14) | Baseline ML models (RF, XGBoost)      | 🔨 Starting |
+| Week 3 (Days 15–21)| Deep learning (1D-CNN, LSTM, ensemble) | ⏳ Upcoming |
+| Week 4 (Days 22–30)| API, UI, Docker, deployment            | ⏳ Upcoming |
+
+## Week 1 Summary
+
+By the end of Week 1, the project has:
+
+- ✅ A working data pipeline: NASA catalog download → light curve download → preprocessing → phase folding
+- ✅ EDA notebook quantifying the core challenge: **8:1 class imbalance**
+- ✅ A feature engineering module producing 20 handcrafted features per star
+- ✅ A locked-in PyTorch `Dataset` interface for Week 3's deep learning models
+- ✅ 16 passing unit tests across preprocessing, features, and dataset code
+
+**Key technical decisions made this week:**
+1. Phase folding at 2000 bins balances signal clarity vs. compute cost
+2. Asymmetric sigma clipping (5σ upper, 10σ lower) preserves real transit dips
+   while removing cosmic ray spikes
+3. Class weights computed from the dataset itself, not hardcoded — generalizes
+   to the full 9,564-star catalog
+4. Folded-curve features (depth, width, symmetry) are NaN-safe so the same
+   feature matrix works whether or not period info is available
+
 ## License
 
 MIT — see [LICENSE](LICENSE)
