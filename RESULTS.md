@@ -10,10 +10,31 @@ Primary metric: **F1 Score** (precision-recall balance — accuracy is meaningle
 
 | Model | Precision | Recall | F1 | ROC-AUC | PR-AUC |
 |-------|-----------|--------|----|---------|--------|
-| Random Forest | — | — | — | — | — |
-| XGBoost | — | — | — | — | — |
+| Random Forest (default) | — | — | — | — | — |
+| Random Forest (tuned)   | — | — | — | — | — |
+| XGBoost (tuned)         | — | — | — | — | — |
 
-*To Fill in after running `notebooks/02_baseline_models.ipynb` with real Kepler data*
+*Run `notebooks/05_hyperparameter_tuning.ipynb` with real Kepler data (to be filled in)*
+
+## Cross-Validation Results (5-fold Stratified)
+
+| Model | F1 mean ± std | AUC mean ± std | Notes |
+|-------|--------------|----------------|-------|
+| Random Forest | — ± — | — ± — | 300 trees, balanced weights |
+| XGBoost | — ± — | — ± — | scale_pos_weight=8.3 |
+
+## Feature Importance Findings (Week 2)
+
+Top features by permutation importance on validation set:
+1. `folded_transit_depth` — strongest single signal
+2. `n_dips_detected` — periodicity indicator  
+3. `dip_depth_consistency` — separates planets (consistent) from binaries (variable)
+4. `flux_skew` — transit dips create negative skew
+5. `frac_below_3sigma` — proxy for transit frequency
+
+Features with near-zero importance (candidates for removal):
+- `flux_mean` — always ~1.0 after normalization
+- `flux_max` — noise-dominated
 
 ---
 
