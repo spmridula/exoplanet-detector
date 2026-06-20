@@ -1,19 +1,3 @@
-# src/data/preprocessor.py
-"""
-preprocessor.py
-───────────────
-Cleans and normalizes raw Kepler light curves for ML input.
-
-Pipeline
---------
-1. Remove NaN values
-2. Sigma clipping  → removes cosmic ray hits and outliers
-3. Normalization   → median-normalize flux to ~1.0 baseline
-4. Gap filling     → linear interpolation of short gaps
-5. Flattening      → remove long-term stellar variability trend
-6. phase_fold()    → fold light curve onto orbital period (key ML transform)
-"""
-
 import logging
 from typing import Tuple
 
