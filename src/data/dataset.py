@@ -34,14 +34,6 @@ class ExoplanetLightCurveDataset(Dataset):
         If True, applies light augmentation (Day 18 will extend this).
         For now: random circular shift of the phase axis.
 
-    Example
-    -------
-        ds = ExoplanetLightCurveDataset(light_curves, labels, periods, t0s)
-        loader = DataLoader(ds, batch_size=64, shuffle=True)
-        for x, y in loader:
-            # x.shape == (batch, 1, 2000)  — channel-first for 1D-CNN
-            # y.shape == (batch,)
-            ...
     """
 
     def __init__(
