@@ -1,16 +1,3 @@
-# src/data/feature_engineer.py
-"""
-feature_engineer.py
-────────────────────
-Day 4: Extracts handcrafted features from light curves for classical ML models.
-
-These features feed into Random Forest / XGBoost in Week 2. Each feature
-captures something a domain expert would look at: dip depth, periodicity,
-shape statistics, etc.
-
-Commit: feature: handcrafted feature extraction pipeline
-"""
-
 import logging
 from typing import Optional
 
