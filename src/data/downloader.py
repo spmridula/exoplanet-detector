@@ -1,17 +1,3 @@
-# src/data/downloader.py
-"""
-downloader.py
-─────────────
-Day 2: Full Kepler DR25 dataset download + catalog fetch from NASA IPAC.
-
-Two things this module does:
-  1. download_catalog()  — fetches the full Kepler DR25 label table from NASA
-                           (~9,564 KOIs with CONFIRMED / FALSE POSITIVE labels)
-  2. LightCurveDownloader — downloads individual star light curves via lightkurve
-
-Commit: data: fetch Kepler light curve data
-"""
-
 import logging
 import time
 from pathlib import Path
